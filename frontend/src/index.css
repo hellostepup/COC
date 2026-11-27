@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .card { @apply bg-panel border border-line rounded-xl p-4; }
+  .btn { @apply inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium bg-panel2 border border-line hover:border-muted transition disabled:opacity-40 disabled:cursor-not-allowed; }
+  .btn-primary { @apply bg-emerald-600 border-emerald-500 text-white hover:bg-emerald-500; }
+  .btn-danger { @apply text-red-300 hover:border-red-400; }
+  .input { @apply bg-[#0e121a] border border-line rounded-lg px-2.5 py-1.5 text-sm w-full focus:outline-none focus:border-sky-500; }
+  .label { @apply text-xs text-muted mb-1 block; }
+  .chip { @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium border; }
+  .h2 { @apply text-lg font-semibold; }
+}
+body { font-variant-numeric: tabular-nums; }

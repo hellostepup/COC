@@ -1,0 +1,57 @@
+{
+  "name": "coc-farming-manager",
+  "version": "1.0.0",
+  "description": "COC Farming & Upgrade Manager",
+  "private": true,
+  "main": "electron/main.cjs",
+  "author": "COC Manager",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "electron": "electron .",
+    "electron:dev": "cross-env ELECTRON_DEV=1 electron .",
+    "dist": "vite build && electron-builder --win nsis"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.3.4",
+    "autoprefixer": "10.4.20",
+    "cross-env": "7.0.3",
+    "electron": "33.2.1",
+    "electron-builder": "25.1.8",
+    "postcss": "8.4.49",
+    "tailwindcss": "3.4.17",
+    "vite": "5.4.11"
+  },
+  "build": {
+    "appId": "local.cocmanager.app",
+    "productName": "COC Farming Manager",
+    "files": [
+      "electron/**",
+      "dist/**"
+    ],
+    "extraResources": [
+      {
+        "from": "../backend/dist/coc-backend",
+        "to": "backend"
+      }
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "directories": {
+      "output": "release"
+    }
+  },
+  "allowScripts": {
+    "electron@33.2.1": true,
+    "esbuild@0.21.5": true
+  }
+}
